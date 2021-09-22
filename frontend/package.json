@@ -15,6 +15,7 @@
     "react-redux": "^7.2.5",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-tilt": "^0.1.4",
     "sass": "^1.42.1",
     "web-vitals": "^1.0.1"
   },
