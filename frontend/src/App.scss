@@ -1,0 +1,19 @@
+
+@import './variables';
+
+body,html{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: $font;
+  overflow-x: hidden;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(11,20,35,1) 31%, rgba(51,12,31,1) 100%);
+  color: #fafafa;
+  text-align: center;
+  scroll-behavior: smooth;
+}
+
+.text-white{
+  color: white;
+}
