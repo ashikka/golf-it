@@ -1,32 +1,37 @@
-import { Server, Socket } from "socket.io";
+import { Socket } from "socket.io";
+import events from "./events";
 
-const PlayerHandler = (server: Server) => (player: Socket) => {
-  // player.on('player:new', (clientId: string) => {
-    
-  // })
+const { listen, emit } = events;
 
-  player.on('player:join', (room: string) => {
-    /**
-     * When player requests to join a room, check
-     * if room exists, then create a client ID and
-     * and reply with this.
-     */
+const PlayerHandler = (player: Socket) => {
+  /**
+   * Assign client ID to user
+   */
+  player.emit(emit.PLAYER.CONNECTED, 'clientId-a32fd35fd253');
 
-    const clientId = String();
+  /**
+   * When player requests to join a room, check
+   * if room exists, join them to the room.
+   */
+  player.on(listen.PLAYER.JOIN, (roomId: string, clientId: string) => {
+    // Check if room and client exist in the DB
+    clientId = roomId + roomId;
 
-    player.join(room);
-    player.emit(clientId);
+    // If yes, join
+    // player.emit(JOIN, clientId);
+    player.join(roomId);
+    player.emit(emit.ROOM.JOINED, clientId);
   })
 
-  // auth
-  // player.use()
+  /**
+   * When the player sends a type event, check for
+   * room and broadcast to that room.
+   */
+  player.on(listen.PLAYER.TYPE, (roomId: string, code: string) => {
+    if (!roomId)
+      return player.emit(emit.ERROR, 'No room id provided')
 
-  player.on('player:type', (code: string, room: string) => {
-    /**
-     * When a joined player types, send that code to everyone
-     * in the room.
-     */
-    server.to(room).emit(code)
+    player.to(roomId).emit(emit.ROOM.TYPE, code)
   })
 }
 
