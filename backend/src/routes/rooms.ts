@@ -3,6 +3,13 @@ import { firestore } from "../firebase";
 
 const rooms = express.Router();
 
+export interface IRoom {
+  createdBy: string;
+  population: number;
+  players: string[];
+  [x: string]: any;
+}
+
 rooms.get('/', (req, res) => {
   res.sendStatus(200);
 })
