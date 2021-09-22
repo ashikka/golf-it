@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import getStuff from '../../api/requests';
+import api from "../../api/api"
 
 export const getQuestionsThunk = createAsyncThunk(
   'questions/get',
   async () => {
-    const response = await getStuff();
+    const response = api.getQuestions();
     return response;
   },
 );

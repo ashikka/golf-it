@@ -11,7 +11,6 @@ class Client {
   }
 
   /**
-   * 
    * @param {string} clientId String recieved from socket on connect
    * @param {Object} payload Object with any keys you want to add to firestore
    * @returns {Promise<string>} Room ID
@@ -20,6 +19,16 @@ class Client {
     return (
       await this.api.post('/room/create', { clientId, payload })
     ).data
+  }
+
+  /**
+   * @param {string} category Category string
+   * @returns Array
+   */
+  async getQuestions(category = undefined) {
+    // firebase
+
+    return []
   }
 
   /**
