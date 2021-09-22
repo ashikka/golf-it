@@ -1,0 +1,174 @@
+@import "../../variables";
+
+.btn {
+  background: linear-gradient(
+    92.88deg,
+    rgb(69, 94, 181) 9.16%,
+    rgb(86, 67, 204) 43.89%,
+    rgb(103, 63, 215) 64.72%
+  );
+  margin-top: 0.8rem;
+  font-weight: bold;
+  border: none;
+}
+
+.btn:hover {
+  background: linear-gradient(
+    180deg,
+    rgb(69, 94, 181) 9.16%,
+    rgb(86, 67, 204) 43.89%,
+    rgb(103, 63, 215) 64.72%
+  );
+  transition: background 2s;
+}
+
+.logo {
+  height: 2rem;
+  margin-top: 0.8rem;
+}
+
+.arch {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35vw;
+  height: 42vh;
+  position: absolute;
+  z-index: 2;
+  opacity: 0.9;
+}
+
+.parent {
+  position: relative;
+  height: 50vh;
+  margin-top: 5rem;
+}
+
+.glow {
+  position: absolute;
+  z-index: 1;
+  width: 37vw;
+  height: 42vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 217.29deg at 51.63% 52.16%,
+    rgb(36, 0, 255) 0deg,
+    rgb(0, 135, 255) 19.5deg,
+    rgb(255, 29, 122) 102.75deg,
+    rgb(245, 56, 27) 152.25deg,
+    rgb(255, 83, 53) 208.88deg,
+    rgb(105, 30, 255) 291deg
+  );
+  filter: blur(16px);
+  opacity: 0.75;
+}
+
+.features {
+  width: 50%;
+}
+.navbar {
+  position: sticky;
+  width: 100vw !important;
+  top: 0px;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.445);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.39);
+}
+
+.navbar.colorChange {
+  background-color: #000;
+}
+
+.header {
+  font-weight: bold;
+  font-size: 64px;
+  margin-top: 4rem;
+}
+
+.subheader {
+  color: #fafafacc;
+  font-size: 30px;
+}
+
+.paragraph {
+  color: #fafafab0;
+  font-size: 16px;
+}
+
+.reset {
+  color: white;
+}
+
+.parent-div {
+  position: relative;
+}
+
+@keyframes pulse {
+  0% {
+    transform: rotate(0deg);
+    filter: blur(8px);
+    border-radius: 5px;
+  }
+  33% {
+    transform: rotate(-0.5deg) translate(1px, -1px) scale(1.01);
+    filter: blur(10px);
+    border-radius: 3px;
+  }
+  67% {
+    transform: rotate(1deg) translate(-1px, -1px) scale(0.99);
+    filter: blur(14px);
+    border-radius: 7px;
+  }
+  100% {
+    transform: rotate(0deg);
+    filter: blur(8px);
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    font-size: 32px;
+  }
+
+  .subheader {
+    font-size: 15px;
+  }
+
+  .paragraph {
+    font-size: 12px;
+  }
+
+  .header-1 {
+    font-size: 20px;
+  }
+  span {
+    font-size: x-small;
+  }
+
+  .glow {
+    width: 55vw;
+    height: 25vh;
+  }
+  .arch {
+    width: 50vw;
+    height: 20vh;
+  }
+
+  .parent {
+    height: 30vh;
+    margin-top: 2rem;
+  }
+
+  .tick {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .features {
+    width: 75%;
+  }
+}
