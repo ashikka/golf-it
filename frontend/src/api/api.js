@@ -39,5 +39,5 @@ class Client {
   }
 }
 
-const api = Client();
+const api = new Client();
 export default api;
