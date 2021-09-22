@@ -1,9 +1,9 @@
 import express from "express";
 
-const Router = express.Router();
+const router = express.Router();
 
-Router.use((_,__,next)=>{
+router.use((_,__,next)=>{
   next()
 })
 
-export default Router;
+export default router;

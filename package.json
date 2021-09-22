@@ -1,11 +1,13 @@
 {
   "name": "golf",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Monorepo",
-  "main": "",
   "repository": "https://github.com/zrthxn/golf",
   "license": "MIT",
   "private": true,
-  
-  "workspaces": [ "frontend", "backend", "common" ]
+  "workspaces": [
+    "frontend",
+    "backend",
+    "common"
+  ]
 }

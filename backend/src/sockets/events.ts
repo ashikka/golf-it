@@ -4,6 +4,7 @@ export default {
     PLAYER: {
       JOIN: "player:join",
       TYPE: "player:type",
+      REJOIN: "player:rejoin",
     },
     ROOM: {
       CONNECT: "room:connected",
