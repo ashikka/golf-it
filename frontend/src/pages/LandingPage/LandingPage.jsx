@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './LandingPage.scss';
-import { Row } from 'react-bootstrap';
+import { Row, Button } from 'react-bootstrap';
 import Tilt from 'react-tilt';
 import ArchLinux from '../../assets/arch.png';
 
@@ -39,7 +40,11 @@ const LandingPage = () => (
           <img src={ArchLinux} alt="" className="arch" />
         </div>
       </Tilt>
-
+    </Row>
+    <Row className="d-flex justify-content-center">
+      <Link to="/questions">
+      <Button className="play">Play!</Button>
+      </Link>
     </Row>
 
   </>
