@@ -1,0 +1,8 @@
+{
+  "name": "@golf/common",
+  "version": "0.1.0",
+  "description": "Common Libs",
+  "author": "zrthxn",
+  "license": "MIT",
+  "private": true
+}

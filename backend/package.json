@@ -5,7 +5,10 @@
   "main": "build/index.js",
   "scripts": {
     "start": "node build/index.js",
-    "build": "tsc"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf build && tsc",
+    "serve": "nodemon build/index.js -e js",
+    "watch": "tsc -b -w"
   },
   "author": "zrthxn",
   "license": "MIT",
@@ -13,8 +16,10 @@
   "dependencies": {
     "axios": "^0.21.4",
     "bufferutil": "^4.0.3",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "firebase": "^9.0.2",
     "socket.io": "^4.2.0",
     "tslint": "^6.1.3",
     "typescript": "^4.4.3",
@@ -25,6 +30,7 @@
     "@types/express": "^4.17.13",
     "@types/node": "^16.9.4",
     "@types/socket.io": "^3.0.2",
-    "@types/uuid": "^8.3.1"
+    "@types/uuid": "^8.3.1",
+    "nodemon": "^2.0.12"
   }
 }

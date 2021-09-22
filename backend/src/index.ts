@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import fs from 'fs';
 import crypto, { randomBytes } from 'crypto';
+import cors from 'cors';
 
 require('dotenv').config();
 
@@ -11,10 +12,11 @@ require('dotenv').config();
  */
 
 const server = express();
-const PORT = 4000;
+const HTTPPORT = 4000;
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+server.use(cors())
 
 server.use((_, res, next) => {
   res.header('Access-Control-Allow-Origin',  '*');
@@ -26,34 +28,37 @@ server.use((_, res, next) => {
 import Router from './routes/router';
 
 server.use(Router);
-server.listen(PORT, console.log.bind(this, `[Starting] Bind PORT ${PORT}`));
+server.listen(HTTPPORT, console.log.bind(this, `[Starting] Bind PORT ${HTTPPORT}`));
 
 // --------------------------
 /**
  * 
  */
 
-import { createServer } from 'http';
 import { Server, Socket } from 'socket.io';
 import uuid from 'uuid';
 
+import EVENTS from './sockets/events';
 import PlayerHandler from './sockets/players';
+import RoomHandler from './sockets/rooms';
 
-const sockets = express();
-const __https = createServer(sockets);
+const SOCKPORT = 4050;
+const { listen, emit } = EVENTS;
 
-const io = new Server(__https);
+const sock = new Server(SOCKPORT);
 
-io.engine.generateId = uuid.v4
+// sock.engine.generateId = () => uuid.v4()
 
-io.use((socket: Socket, next) => {
-  // Auth
-  next()
-})
+// io.use((socket: Socket, next) => {
+//   // Auth
+//   next()
+// })
 
-io.on('connection', (socket: Socket) => {
-  // socket.
-  io.of('/player').on('connection', PlayerHandler(io))
+console.log(`[Starting] Socket PORT ${SOCKPORT}`)
+
+sock.on(listen.CONNECTION, (socket: Socket) => {
+  socket.emit(emit.WELCOME, "key")
 });
 
-__https.listen(4050);
+sock.of('/player').on(listen.CONNECTION, PlayerHandler)
+sock.of('/room').on(listen.CONNECTION, RoomHandler)
