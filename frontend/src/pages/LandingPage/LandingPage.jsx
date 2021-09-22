@@ -43,7 +43,7 @@ const LandingPage = () => (
     </Row>
     <Row className="d-flex justify-content-center">
       <Link to="/questions">
-      <Button className="play">Play!</Button>
+      <Button className="play">Create room!</Button>
       </Link>
     </Row>
 
