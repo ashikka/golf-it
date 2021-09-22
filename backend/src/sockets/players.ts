@@ -28,7 +28,7 @@ const PlayerHandler = (player: Socket) => {
         return player.emit(emit.ERROR, "Room full")
 
       player.join(roomId);
-      player.emit(emit.ROOM.JOINED, clientId);
+      player.to(roomId).emit(emit.ROOM.JOINED, clientId);
 
       players = players.filter((id: string) => id !== clientId);
 
@@ -39,9 +39,6 @@ const PlayerHandler = (player: Socket) => {
     } else {
       return player.emit(emit.ERROR, "Room doesn't exist")
     }
-
-    // If yes, join
-    // player.emit(JOIN, clientId);
   })
 
   /**
