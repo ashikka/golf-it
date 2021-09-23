@@ -19,23 +19,15 @@ class Client {
     });
 
     this.sock = io("http://localhost:4050/player");
-    this.sock.on(
-      listen.PLAYER.CONNECTED,
-      (cid) => {
-        const _client = localStorage.getItem("PREV_CLIENT_ID");
-        if (!_client)
-          localStorage.setItem("PREV_CLIENT_ID", cid);
-        else
-          this.sock.id = _client;
+    this.sock.on(listen.PLAYER.CONNECTED, (cid) => {
+      const _client = localStorage.getItem("PREV_CLIENT_ID");
+      if (!_client) localStorage.setItem("PREV_CLIENT_ID", cid);
+      else this.sock.id = _client;
 
-        console.log("[SOCK] (Connected)", this.sock.id);
-      }
-    );
+      console.log("[SOCK] (Connected)", this.sock.id);
+    });
 
-    this.sock.on(
-      listen.ERROR,
-      console.error.bind(Client, "[SOCK] (Error)")
-    );
+    this.sock.on(listen.ERROR, console.error.bind(Client, "[SOCK] (Error)"));
   }
 
   get socket() {
@@ -64,9 +56,7 @@ class Client {
   async findRoom(roomID) {
     if (!roomID) return {};
 
-    return (
-      await this.rest.get(`/room/${roomID}`)
-    ).data;
+    return (await this.rest.get(`/room/${roomID}`)).data;
   }
 
   /**
@@ -93,7 +83,13 @@ class Client {
   /**
    * @todo Execute call
    */
-  async executeCode() {}
+  async executeCode(questionName, code, language, submitTime) {
+    return this.rest.post(`/submission/${questionName}`, {
+      code,
+      language,
+      submitTime,
+    });
+  }
 
   /**
    * Register a function event listener
@@ -110,10 +106,7 @@ class Client {
    */
   async joinRoom(roomId) {
     const room = await this.findRoom(roomId);
-    this.sock.emit(
-      emit.PLAYER.JOIN,
-      roomId
-    )
+    this.sock.emit(emit.PLAYER.JOIN, roomId);
 
     this.room = room;
     this._rid = roomId;
@@ -121,10 +114,7 @@ class Client {
   }
 
   async typeRoom(code) {
-    this.sock.emit(
-      emit.PLAYER.TYPE,
-      this._rid, code
-    )
+    this.sock.emit(emit.PLAYER.TYPE, this._rid, code);
   }
 
   /**
