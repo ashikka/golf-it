@@ -1,12 +1,14 @@
 import firebase from "firebase";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const config = {
-  apiKey: "AIzaSyD-JsiqVCVhOUJG6Nf5JwcJbLn3mGaWb1Y",
-  authDomain: "golfit-e5f0f.firebaseapp.com",
-  projectId: "golfit-e5f0f",
-  storageBucket: "golfit-e5f0f.appspot.com",
-  messagingSenderId: "859193518509",
-  appId: "1:859193518509:web:f518773f20fa79cff51924"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID
 }
 
 // Initialize Firebase app
