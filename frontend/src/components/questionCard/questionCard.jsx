@@ -1,24 +1,30 @@
 import React from "react";
-import { Card, Col, Button } from "react-bootstrap";
+import { Card, Col, Button, Row } from "react-bootstrap";
 import "./questionCard.scss";
+import ReactMarkdown from "react-markdown";
 
-const CoursePageCard = (props) => {
 
+const QuestionCard = (props) => {
   return (
-    <Col lg={4} className="d-flex justify-content-center align-items-center">
-      <Card className="card text-center question-card">
+    <Col sm={12} className="d-flex justify-content-center align-items-center">
+      <Card className="card question-card p-2" style={{ textAlign: "left" }}>
         <Card.Body>
-          <Card.Title className="text-center card-title">
-            {props.questionName}
-          </Card.Title>
-          <p>
-          {props.question}
-          </p>
-          <Button>Solve</Button>
+          <Row>
+            <Col md={8} sm={12}>
+              <Card.Title className="card-title">
+                {props.questionName}
+              </Card.Title>
+              <ReactMarkdown children={props.question} />
+            </Col>
+
+            <Col md={4} sm={12} style={{ textAlign: "right" }}>
+              <Button onClick={props.onChoose}>Choose</Button>
+            </Col>
+          </Row>
         </Card.Body>
       </Card>
     </Col>
   );
 };
 
-export default CoursePageCard;
+export default QuestionCard;

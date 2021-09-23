@@ -45,7 +45,9 @@ import RoomHandler from './sockets/rooms';
 const SOCKPORT = 4050;
 const { listen, emit } = EVENTS;
 
-const sock = new Server(SOCKPORT);
+const sock = new Server(SOCKPORT, {
+  cors: { origin: "*", allowedHeaders: "*", methods: "*" },
+});
 
 console.log(`[Starting] Socket PORT ${SOCKPORT}`)
 

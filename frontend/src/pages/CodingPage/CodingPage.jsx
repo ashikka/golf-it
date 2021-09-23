@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import AceEditor from "react-ace";
 import { Dropdown, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import ReactMarkdown from "react-markdown";
 // import TestCaseBox from '../../components/testcase/testcase';
-import api from "../../api/api";
+import api from "../../api";
 import { getQuestionsThunk } from "../../redux/slices/questionSlice";
 
 // import swal from "swal";
@@ -28,15 +29,10 @@ const QuestionPage = () => {
 
   const dispatch = useDispatch();
   const questions = useSelector((state) => state.questions);
-  console.log(questions);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  function getStuff() {
-    dispatch(getQuestionsThunk());
-  }
   useEffect(() => {
-    getStuff();
-  }, [questions, getStuff]);
+    dispatch(getQuestionsThunk());
+  }, [dispatch, questions]);
 
   const langList = [
     "Bash",
@@ -55,7 +51,6 @@ const QuestionPage = () => {
   ];
 
   const [language, setLanguage] = useState("Select");
-
   let mode = "";
   if (language === "C" || language === "Cplusplus") {
     mode = "c_cpp";
@@ -63,17 +58,29 @@ const QuestionPage = () => {
     mode = language;
   }
 
-  const [code, setCode] = useState("");
+  const [code, setCode] = useState(String());
   const [characters, setCharacter] = useState(0);
 
   const onChangeFunction = (value) => {
+    // Emit my own typing input to socket room
+    api.typeRoom(value);
+
+    // Set state
     setCode(value);
     setCharacter(value.length);
   };
 
+  // Competitor's code
+  const [__code, set__code] = useState(String());
+
+  // Listen to typing input from other person in room
+  useEffect(() => {  
+    api.onRoomType(set__code)
+  }, [])
+
   const submitSolution = async () => {
     setTempCompilerResponse({ status: "compiling", tests: [] });
-    const res = await api.post("/submissions", {
+    const res = await api.executeCode({
       //   questionName: question.questionName,
       code,
       language,
@@ -116,7 +123,10 @@ const QuestionPage = () => {
       </Row>
       <Row className="d-flex mt-2" style={{ textAlign: "left" }}>
         {questions.data != null ? (
-          <p>{questions.data.data.questions[0].question}</p>
+          <p>
+            {" "}
+            <ReactMarkdown children={questions.data.data.questions[0].question} />
+          </p>
         ) : (
           <></>
         )}
