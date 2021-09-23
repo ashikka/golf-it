@@ -26,8 +26,10 @@ server.use((_, res, next) => {
 })
 
 import rooms from './routes/rooms';
+import code from './routes/code';
 
 server.use('/room', rooms);
+server.use('/code', code);
 server.listen(HTTPPORT, console.log.bind(this, `[Starting] Bind PORT ${HTTPPORT}`));
 
 // --------------------------
