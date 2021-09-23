@@ -1,0 +1,52 @@
+.test-case-div{
+    width: 80%;
+    height: 250%;
+    background-color: transparent;
+    margin-top: 2rem;
+    border: 5px solid #3cc6f2;
+}
+
+.compiling-box{
+    margin-top: 2rem;
+}
+
+.test-case-box{
+    font-size: 70%;
+    text-align: center;
+    padding: 1rem;
+    border: 2px solid #3cc6f2;
+    width: 200px;
+}
+
+.sample-case-detail {
+    white-space: pre-line;
+    text-decoration-style: underline solid  #3cc6f2;
+    margin-bottom: 30px;
+}
+
+.case-box {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.icon {
+    height: 20px;
+}
+
+.icon-div {
+    margin-left: 20px;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
