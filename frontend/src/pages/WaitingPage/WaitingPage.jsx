@@ -2,7 +2,8 @@
 import { React, useEffect } from "react";
 import "./WaitingPage.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Dropdown } from "react-bootstrap";
+import { Row, Dropdown, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { getQuestionsThunk } from "../../redux/slices/questionSlice";
 import QuestionCard from "../../components/questionCard/questionCard";
 
@@ -38,13 +39,11 @@ const WaitingPage = () => {
   return (
     <>
       <Row className="justify-content-center mt-5">
-        <h1 className="mb-5">Questions</h1>
+        <h1 className="mb-5">Waiting Room</h1>
         <div className="waiting-room d-flex flex-row justify-content-around p-5">
           <h1>Players</h1>
           <Dropdown>
-            <Dropdown.Toggle>
-              Select rounds
-            </Dropdown.Toggle>
+            <Dropdown.Toggle>Select rounds</Dropdown.Toggle>
             <Dropdown.Menu className="dropdown-menu">
               <Dropdown.Item href="#/action-1">1</Dropdown.Item>
               <Dropdown.Item href="#/action-2">2</Dropdown.Item>
@@ -54,6 +53,14 @@ const WaitingPage = () => {
             </Dropdown.Menu>
           </Dropdown>
         </div>
+        <div>
+          <Link to="/start">
+            <Button className="mb-5" style={{ height: "3rem", width: "10rem" }}>
+              Start game
+            </Button>
+          </Link>
+        </div>
+        <h1 className="mb-5">Questions</h1>
         {questions.data ? questions.data.data.questions.map(createCard) : <></>}
       </Row>
     </>

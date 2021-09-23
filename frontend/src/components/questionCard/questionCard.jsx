@@ -1,20 +1,21 @@
 import React from "react";
-import { Card, Col, Button } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import "./questionCard.scss";
+import ReactMarkdown from "react-markdown";
+
 
 const CoursePageCard = (props) => {
 
   return (
     <Col lg={4} className="d-flex justify-content-center align-items-center">
-      <Card className="card text-center question-card">
+      <Card className="card question-card" style={{textAlign: "justify", textJustify: "inter-word"}}>
         <Card.Body>
           <Card.Title className="text-center card-title">
             {props.questionName}
           </Card.Title>
           <p>
-          {props.question}
+          <ReactMarkdown children={props.question} />
           </p>
-          <Button>Solve</Button>
         </Card.Body>
       </Card>
     </Col>

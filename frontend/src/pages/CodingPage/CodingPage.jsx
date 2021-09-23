@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AceEditor from "react-ace";
 import { Dropdown, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import ReactMarkdown from "react-markdown";
 // import TestCaseBox from '../../components/testcase/testcase';
 import api from "../../api/api";
 import { getQuestionsThunk } from "../../redux/slices/questionSlice";
@@ -55,7 +56,6 @@ const QuestionPage = () => {
   ];
 
   const [language, setLanguage] = useState("Select");
-
   let mode = "";
   if (language === "C" || language === "Cplusplus") {
     mode = "c_cpp";
@@ -116,7 +116,10 @@ const QuestionPage = () => {
       </Row>
       <Row className="d-flex mt-2" style={{ textAlign: "left" }}>
         {questions.data != null ? (
-          <p>{questions.data.data.questions[0].question}</p>
+          <p>
+            {" "}
+            <ReactMarkdown children={questions.data.data.questions[0].question} />
+          </p>
         ) : (
           <></>
         )}
