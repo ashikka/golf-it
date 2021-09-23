@@ -6,15 +6,15 @@ const startWorker = async () => {
   try {
     await worker.build([
       "Python",
-      "Bash",
-      "C",
-      "Cplusplus",
-      "Ruby",
-      "Javascript",
-      "Java",
-      "Perl",
-      "Swift",
-      "Rust",
+    //   "Bash",
+    //   "C",
+    //   "Cplusplus",
+    //   "Ruby",
+    //   "Javascript",
+    //   "Java",
+    //   "Perl",
+    //   "Swift",
+    //   "Rust",
     ]);
     worker.start();
   } catch (error) {
