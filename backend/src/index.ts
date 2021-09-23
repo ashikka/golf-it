@@ -25,9 +25,9 @@ server.use((_, res, next) => {
   next();
 })
 
-import Router from './routes/router';
+import rooms from './routes/rooms';
 
-server.use(Router);
+server.use('/room', rooms);
 server.listen(HTTPPORT, console.log.bind(this, `[Starting] Bind PORT ${HTTPPORT}`));
 
 // --------------------------
@@ -36,8 +36,6 @@ server.listen(HTTPPORT, console.log.bind(this, `[Starting] Bind PORT ${HTTPPORT}
  */
 
 import { Server, Socket } from 'socket.io';
-import uuid from 'uuid';
-
 import EVENTS from './sockets/events';
 import PlayerHandler from './sockets/players';
 import RoomHandler from './sockets/rooms';
@@ -46,13 +44,6 @@ const SOCKPORT = 4050;
 const { listen, emit } = EVENTS;
 
 const sock = new Server(SOCKPORT);
-
-// sock.engine.generateId = () => uuid.v4()
-
-// io.use((socket: Socket, next) => {
-//   // Auth
-//   next()
-// })
 
 console.log(`[Starting] Socket PORT ${SOCKPORT}`)
 
