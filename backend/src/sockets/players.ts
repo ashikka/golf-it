@@ -25,8 +25,8 @@ const PlayerHandler = (player: Socket) => {
     if (room.exists) {
       let { population, players } = (room.data() || {}) as IRoom;
 
-      if (population >= 2)
-        return player.emit(emit.ERROR, "Room full")
+      // if (population >= 2)
+      //   return player.emit(emit.ERROR, "Room full")
 
       player.join(roomId);
       player.to(roomId).emit(emit.ROOM.JOINED, player.id);
