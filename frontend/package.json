@@ -19,6 +19,7 @@
     "react-scripts": "4.0.3",
     "react-tilt": "^0.1.4",
     "sass": "^1.42.1",
+    "socket.io-client": "^4.2.0",
     "swal": "^0.1.0",
     "web-vitals": "^1.0.1"
   },
