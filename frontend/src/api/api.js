@@ -1,4 +1,5 @@
 import axios from 'axios';
+import res from './question';
 
 class Client {
   api;
@@ -25,10 +26,22 @@ class Client {
    * @param {string} category Category string
    * @returns Array
    */
-  async getQuestions(category = undefined) {
-    // firebase
+  async getCategories() {
+    // const { categories } = Q;
+    // return categories;
+  }
 
-    return []
+  /**
+   * @param {string} category Category string
+   * @returns Array
+   */
+  async getQuestions(category = undefined) {
+    // const { questions } = Q;
+
+    // if (category) 
+    //   return questions.filter(({ category: c }) => c === category)
+
+    return res;
   }
 
   /**

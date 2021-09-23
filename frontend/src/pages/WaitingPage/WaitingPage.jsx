@@ -6,6 +6,13 @@ import { Row, Dropdown } from "react-bootstrap";
 import { getQuestionsThunk } from "../../redux/slices/questionSlice";
 import QuestionCard from "../../components/questionCard/questionCard";
 
+/*
+TODO
+1. Ensure the 2 users have joined the room succesfully
+2. When creator of room clicks on start then start game at same time 
+3. Send request for selected round from the dropdown 
+*/
+
 function createCard(data) {
   return (
     <QuestionCard
@@ -18,6 +25,7 @@ function createCard(data) {
 const WaitingPage = () => {
   const dispatch = useDispatch();
   const questions = useSelector((state) => state.questions);
+  console.log(questions);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function getStuff() {
@@ -31,7 +39,7 @@ const WaitingPage = () => {
     <>
       <Row className="justify-content-center mt-5">
         <h1 className="mb-5">Questions</h1>
-        <div className="jwaiting-room">
+        <div className="waiting-room d-flex flex-row justify-content-around p-5">
           <h1>Players</h1>
           <Dropdown>
             <Dropdown.Toggle>
@@ -46,7 +54,7 @@ const WaitingPage = () => {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        {questions.data ? questions.data.questions.map(createCard) : <></>}
+        {questions.data ? questions.data.data.questions.map(createCard) : <></>}
       </Row>
     </>
   );
