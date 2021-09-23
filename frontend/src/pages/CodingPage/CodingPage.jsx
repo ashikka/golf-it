@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import api from "../../api/api";
 import { getQuestionsThunk } from "../../redux/slices/questionSlice";
 
-import swal from "swal";
+// import swal from "swal";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";
@@ -84,7 +84,7 @@ const QuestionPage = () => {
 
   const onSubmit = () => {
     if (code.length === 0) {
-      swal("Please enter your code");
+      alert("Please enter your code");
     } else {
       submitSolution();
     }
@@ -121,16 +121,16 @@ const QuestionPage = () => {
           <></>
         )}
       </Row>
-      <Row className="d-flex justify-content-between">
+      <div className="d-flex flex-row align-items-center justify-content-between">
         <div>
           <b>Characters:</b> {characters}
         </div>
 
-        <div>
-          <span>
+        <div className="d-flex flex-row align-items-center w-50">
+          <span className="mt-2">
             <b>Language:</b> &nbsp;
           </span>
-          <Dropdown className="dropdown d-inline-block">
+          <Dropdown className="">
             <Dropdown.Toggle className="dropbtn" id="dropdown-basic">
               {language}
             </Dropdown.Toggle>
@@ -144,7 +144,7 @@ const QuestionPage = () => {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-      </Row>
+      </div>
       <Row className="mt-5">
         <AceEditor
           height={700}
