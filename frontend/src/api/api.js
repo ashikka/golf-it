@@ -26,8 +26,20 @@ class Client {
    * @param {string} category Category string
    * @returns Array
    */
+  async getCategories() {
+    // const { categories } = Q;
+    // return categories;
+  }
+
+  /**
+   * @param {string} category Category string
+   * @returns Array
+   */
   async getQuestions(category = undefined) {
-    // firebase
+    // const { questions } = Q;
+
+    // if (category) 
+    //   return questions.filter(({ category: c }) => c === category)
 
     return res;
   }
