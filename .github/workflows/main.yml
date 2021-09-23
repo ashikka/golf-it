@@ -41,5 +41,6 @@ jobs:
         run: |
           cd frontend
           yarn lint:fix
-          cd ./backend
+          cd ..
+          cd backend
           yarn lint:fix
