@@ -83,8 +83,8 @@ class Client {
   /**
    * @todo Execute call
    */
-  async executeCode(questionName, code, language, submitTime) {
-    return this.rest.post(`/submission/${questionName}`, {
+  async executeCode({ questionName, code, language, submitTime }) {
+    return this.rest.post(`/code/submission/${questionName}`, {
       code,
       language,
       submitTime,

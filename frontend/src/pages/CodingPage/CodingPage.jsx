@@ -80,6 +80,7 @@ const QuestionPage = () => {
 
   const submitSolution = async () => {
     setTempCompilerResponse({ status: "compiling", tests: [] });
+    console.log(questions.data.data.questions[0].questionName);
     const res = await api.executeCode({
       questionName: questions.data.data.questions[0].questionName,
       code,
