@@ -4,7 +4,7 @@ import AceEditor from "react-ace";
 import { Dropdown, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import ReactMarkdown from "react-markdown";
-// import TestCaseBox from '../../components/testcase/testcase';
+import TestCaseBox from '../../components/testCaseBox/TestCaseBox';
 import api from "../../api";
 import { getQuestionsThunk } from "../../redux/slices/questionSlice";
 
@@ -74,14 +74,15 @@ const QuestionPage = () => {
   const [__code, set__code] = useState(String());
 
   // Listen to typing input from other person in room
-  useEffect(() => {  
-    api.onRoomType(set__code)
-  }, [])
+  useEffect(() => {
+    api.onRoomType(set__code);
+  }, []);
 
   const submitSolution = async () => {
     setTempCompilerResponse({ status: "compiling", tests: [] });
+    console.log(questions.data.data.questions[0].questionName);
     const res = await api.executeCode({
-      //   questionName: question.questionName,
+      questionName: questions.data.data.questions[0].questionName,
       code,
       language,
       submitTime: Date.now(),
@@ -125,7 +126,9 @@ const QuestionPage = () => {
         {questions.data != null ? (
           <p>
             {" "}
-            <ReactMarkdown children={questions.data.data.questions[0].question} />
+            <ReactMarkdown
+              children={questions.data.data.questions[0].question}
+            />
           </p>
         ) : (
           <></>
@@ -187,10 +190,10 @@ const QuestionPage = () => {
         >
           Run
         </Button>
-        {/* <TestCaseBox
+        <TestCaseBox
             status={testCaseBoxStatus}
             compilerResponse={compilerResponse}
-          /> */}
+          />
       </Row>
     </>
   );
