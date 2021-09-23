@@ -39,4 +39,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Fix linting
         run: |
+          cd frontend
+          yarn lint:fix
+          cd ./backend
           yarn lint:fix
