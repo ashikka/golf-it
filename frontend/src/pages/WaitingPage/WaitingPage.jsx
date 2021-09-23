@@ -31,7 +31,7 @@ const WaitingPage = () => {
     <>
       <Row className="justify-content-center mt-5">
         <h1 className="mb-5">Questions</h1>
-        <div className="jwaiting-room">
+        <div className="waiting-room">
           <h1>Players</h1>
           <Dropdown>
             <Dropdown.Toggle>

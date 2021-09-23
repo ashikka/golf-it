@@ -4,6 +4,7 @@ import { Container, Button } from "react-bootstrap";
 import "./App.scss";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import WaitingPage from "./pages/WaitingPage/WaitingPage";
+import CodingPage from "./pages/CodingPage/CodingPage";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route exact path="/questions">
               <WaitingPage />
+            </Route>
+            <Route exact path="/start">
+              <CodingPage />
             </Route>
           </Switch>
         </Container>
