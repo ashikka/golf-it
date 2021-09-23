@@ -5,6 +5,10 @@ import { Row, Button } from 'react-bootstrap';
 import Tilt from 'react-tilt';
 import ArchLinux from '../../assets/arch.png';
 
+/*
+TODO
+When creator clicks create room button, send request to backend
+ */
 const LandingPage = () => (
   <>
     <Row className="d-flex-row justify-content-around">

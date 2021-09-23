@@ -1,4 +1,5 @@
 import axios from 'axios';
+import res from './question';
 
 class Client {
   api;
@@ -28,7 +29,7 @@ class Client {
   async getQuestions(category = undefined) {
     // firebase
 
-    return []
+    return res;
   }
 
   /**
