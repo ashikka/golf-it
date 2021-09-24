@@ -10,7 +10,7 @@
   <b><h2 align="center">Golf it!</h2></b>
 
   <p align="center">
-    Golf it! is a game designed to let you show off your code-fu by solving problems <br> in the least number of <b>characters</b>
+    Golf it! is a game designed to let you show off your code-fu by solving problems <br> in the least number of <b>characters</b> :sparkles:
     <br />
     <a href="https://github.com/ashikka/golf-it"><strong>Explore the docs »</strong></a>
     <br />
@@ -50,10 +50,24 @@
   </a>
 </p>
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`Template`
+One of our teammates loves to solve codegolf questions on (https://codegolf.stackexchange.com). We thought it would be a good idea to implement this as a one on one competition, where two players can compete live to write the shortest snippet of code to solve a question.
 
+Code Golf refers to attempting to solve a problem using the least amount of characters possible i.e. to have the smallest source code. The term is derived from the sport golf where the player’s goal is to hit their ball in the hole using the least number of shots possible. In Code Golf the developer that solves the problem (usually writing a function) using the fewest number characters possible wins.
+
+## How we built it
+
+The backend was built using NodeJS and typescript. We used expressjs to implement all the routes required for submitting code. The backend uses an npm library called "code-executor" which was built in the past by one of our teammates, to execute code against test cases in isolated Docker containers. To implement real-time communication when a head-to-head game started, we used Socket.io to connect both the players in the same room. We used firestore as a database.
+
+The frontend was built using React and Bootstrap. We used socket.io client to interact with the socket server, and axios to interact with the express backend. To display the code editor on the website with multiple themes and syntax support for languages, we used a library called react-ace.
+
+## :rocket: What's next for Golf-it!
+We have many features planned for golf-it in the future:
+
+* Global leaderboards across the website, for players who regularly win more and more head-to-head games to showcase their skills.
+* User accounts (registering and logging in)
+* The ability for users to submit their own questions, and people to vote for questions they found interesting.
+* Picking avatars for your own profile
+* Having live competitions with even more people, instead of just head-to-head ones.
 
 ### Built With
 
