@@ -42,7 +42,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+##  :open_book: About The Project
 
 <p align="center">
   <a href="https://github.com/ashikka/golf-it">
@@ -54,7 +54,7 @@ One of our teammates loves to solve codegolf questions on (https://codegolf.stac
 
 Code Golf refers to attempting to solve a problem using the least amount of characters possible i.e. to have the smallest source code. The term is derived from the sport golf where the player’s goal is to hit their ball in the hole using the least number of shots possible. In Code Golf the developer that solves the problem (usually writing a function) using the fewest number characters possible wins.
 
-## How we built it
+## :gear: How we built it
 
 The backend was built using NodeJS and typescript. We used expressjs to implement all the routes required for submitting code. The backend uses an npm library called "code-executor" which was built in the past by one of our teammates, to execute code against test cases in isolated Docker containers. To implement real-time communication when a head-to-head game started, we used Socket.io to connect both the players in the same room. We used firestore as a database.
 
@@ -87,7 +87,7 @@ We have many features planned for golf-it in the future:
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## :airplane: Getting Started
 
 To get a local copy up and running follow these simple steps.
 
@@ -182,7 +182,7 @@ GET /room/:roomId
 | `params`    | `string` | roomId|
 
 <!-- ROADMAP -->
-## Roadmap
+## :world_map: Roadmap
 
 See the [open issues](https://github.com/ashikka/golf-it/issues) for a list of proposed features (and known issues).
 
