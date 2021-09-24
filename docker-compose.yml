@@ -1,3 +1,7 @@
 version: '3.7'
 
 services:
+  redis:
+    image: redis
+    container-name: broker
+    ports: 6379:6379
