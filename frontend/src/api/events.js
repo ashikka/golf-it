@@ -6,10 +6,7 @@ export default {
       JOIN: "player:join",
       TYPE: "player:type",
       REJOIN: "player:rejoin",
-    },
-    ROOM: {
-      CONNECT: "room:connected",
-      TYPE: "room:type",
+      SUCCESS: "player:success",
     }
   },
 
@@ -23,6 +20,7 @@ export default {
     ROOM: {
       JOINED: "room:joined",
       TYPE: "room:type",
+      SUCCESS: "room:success",
     }
   }
 }

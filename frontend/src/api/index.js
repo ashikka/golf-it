@@ -18,7 +18,7 @@ class Client {
       responseType: "json",
     });
 
-    this.sock = io("http://localhost:4050/player");
+    this.sock = io(`${process.env.REACT_APP_SOCK_URL || "http://localhost:4050"}/player`);
     this.sock.on(listen.PLAYER.CONNECTED, (cid) => {
       const _client = localStorage.getItem("PREV_CLIENT_ID");
       if (!_client) localStorage.setItem("PREV_CLIENT_ID", cid);
@@ -120,6 +120,10 @@ class Client {
     this.sock.emit(emit.PLAYER.TYPE, this._rid, code);
   }
 
+  async successRoom(compilerResponse) {
+    this.sock.emit(emit.PLAYER.SUCCESS, this._rid, this.clientID, compilerResponse);
+  }
+
   /**
    * Do something when someone types in the room.
    * @param {function} cb Callback
@@ -134,6 +138,14 @@ class Client {
    */
   onRoomJoin(cb) {
     return this.registerListener(listen.ROOM.JOINED, cb);
+  }
+
+  /**
+   * Do something when a user wins
+   * @param {function} cb Callback
+   */
+  onSuccessRoom(cb) {
+    return this.registerListener(listen.ROOM.SUCCESS, cb);
   }
 }
 

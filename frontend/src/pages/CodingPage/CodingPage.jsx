@@ -24,7 +24,7 @@ const QuestionPage = () => {
   const [testCaseBoxStatus, setTestCaseBoxStatus] = useState("hidden");
   const [compilerResponse, setCompilerResponse] = useState({});
 
-  const question = api.room.question;
+  const { question } = api.room;
 
   const langList = [
     "Bash",
@@ -52,6 +52,7 @@ const QuestionPage = () => {
 
   const [code, setCode] = useState(String());
   const [characters, setCharacter] = useState(0);
+  const [hasIWon, setHasIWon] = useState();
 
   const onChangeFunction = (value) => {
     // Emit my own typing input to socket room
@@ -64,10 +65,18 @@ const QuestionPage = () => {
 
   // Competitor's code
   const [__code, set__code] = useState(String());
+  const [hasCompetitorWon, setHasCompetitorWon] = useState();
+  const [cCompilerResponse, setCCompilerResponse] = useState();
 
   // Listen to typing input from other person in room
   useEffect(() => {
     api.onRoomType(set__code);
+    api.onSuccessRoom((whoWon, compilerResponse) => {
+      if (whoWon !== api.clientID) {
+        setHasCompetitorWon(true);
+        setCCompilerResponse(compilerResponse);
+      }
+    })
   }, []);
 
   const submitSolution = async () => {
@@ -76,10 +85,14 @@ const QuestionPage = () => {
       questionName: question.questionName,
       code,
       language,
-      submitTime: Date.now(),
-      roomId: api._rid,
-      clientId: api.clientID
+      submitTime: Date.now()
     });
+
+    if (res.data.status === "success") {
+      api.successRoom(res);
+      setHasIWon(true);
+    }
+
     setTempCompilerResponse(res.data.compilerResponse);
   };
 
@@ -103,6 +116,30 @@ const QuestionPage = () => {
 
   return (
     <article id="code-page">
+      {
+        !!hasCompetitorWon &&
+        <section className="game-end-glass" id="box-of-shame">
+          <div>
+            <h1><b>You Lost :(</b></h1>
+            <p>
+              The competitor won by solving all test cases successfully, before you.
+            </p>
+          </div>
+        </section>
+      }
+
+      {
+        !!hasIWon &&
+        <section className="game-end-glass" id="box-of-glory">
+          <div>
+            <h1><b>You WIN :)</b></h1>
+            <p>
+              You won by solving all test cases successfully!.
+            </p>
+          </div>
+        </section>
+      }
+
       <Row className="d-flex mt-5" style={{ textAlign: "left" }}>
         { question && <h1><b>{question.questionName}</b></h1> }
       </Row>

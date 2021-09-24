@@ -28,7 +28,7 @@ code.get("/:resultId", async (req, res) => {
 
 code.post("/submission/:questionName", async (req, res) => {
   const { questionName } = req.params;
-  const { code, language, submitTime, roomId, clientId } = req.body;
+  const { code, language, submitTime } = req.body;
 
   const valid = submissionValidation.validate({
     questionName,
@@ -75,10 +75,9 @@ code.post("/submission/:questionName", async (req, res) => {
         return test;
       }
     );
+
     console.log("COMPILER RESPONSE: ", compilerResponse);
-    const allTestCasesPass = !compilerResponse.tests.find(
-      (test: any) => test.remarks !== "Pass"
-    );
+    const allTestCasesPass = compilerResponse.tests.every((test: any) => test.remarks === "Pass") 
 
     if (allTestCasesPass) {
       return res.status(200).json({

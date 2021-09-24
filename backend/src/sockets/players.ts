@@ -81,6 +81,16 @@ const PlayerHandler = (player: Socket) => {
 
     player.to(roomId).emit(emit.ROOM.TYPE, code)
   })
+
+  /**
+   * When the a player passes all test cases
+   */
+  player.on(listen.PLAYER.SUCCESS, (roomId: string, clientId: string, compilerResponse: any) => {
+    if (!roomId)
+      return player.emit(emit.ERROR, "No room id provided")
+
+    player.to(roomId).emit(emit.ROOM.SUCCESS, clientId, compilerResponse)
+  })
 }
 
 export default PlayerHandler;

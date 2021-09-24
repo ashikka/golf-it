@@ -27,4 +27,46 @@
         border-radius: 0.5em;
         box-shadow: 5px 5px 10px #00000060;
     }
+
+    .game-end-glass {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        z-index: 100;
+        animation: dropglass 2s ease-in forwards;
+    }
+
+    @keyframes dropglass {
+        0% {
+            bottom: 100vh;
+        }
+        30% {
+            bottom: 0;
+        }
+        35% {
+            bottom: 25vh;
+        }
+        60% {
+            bottom: 0;
+        }
+        65% {
+            bottom: 5vh;
+        }
+        100% {
+            bottom: 0;
+        }
+    }
+
+    #box-of-glory {
+        background-color: #00502b40;
+    }
+    #box-of-shame {
+        background-color: #50000040;
+    }
 }
