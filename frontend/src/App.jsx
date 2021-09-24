@@ -1,7 +1,9 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { Container } from "react-bootstrap";
+
 import "./App.scss";
+
 import LandingPage from "./pages/LandingPage/LandingPage";
 import WaitingPage from "./pages/WaitingPage/WaitingPage";
 import CodingPage from "./pages/CodingPage/CodingPage";

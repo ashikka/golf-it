@@ -22,7 +22,10 @@ class Client {
     this.sock.on(listen.PLAYER.CONNECTED, (cid) => {
       const _client = localStorage.getItem("PREV_CLIENT_ID");
       if (!_client) localStorage.setItem("PREV_CLIENT_ID", cid);
-      else this.sock.id = _client;
+      else {
+        this.sock.id = _client;
+        this.sock.connect();
+      }
 
       console.log("[SOCK] (Connected)", this.sock.id);
     });

@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import AceEditor from "react-ace";
-import { Dropdown, Row, Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { Dropdown, Row, Button, Col } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import TestCaseBox from "../../components/testCaseBox/TestCaseBox";
 import api from "../../api";
-import { getQuestionsThunk } from "../../redux/slices/questionSlice";
 
 // import swal from "swal";
 import "ace-builds/src-noconflict/mode-java";
@@ -18,8 +15,8 @@ import "ace-builds/src-noconflict/mode-swift";
 import "ace-builds/src-noconflict/mode-perl";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/theme-chaos";
 import "ace-builds/src-noconflict/ext-language_tools";
-import HomeButton from "../../assets/home-icon.png";
 import "./CodingPage.scss";
 
 const QuestionPage = () => {
@@ -27,12 +24,7 @@ const QuestionPage = () => {
   const [testCaseBoxStatus, setTestCaseBoxStatus] = useState("hidden");
   const [compilerResponse, setCompilerResponse] = useState({});
 
-  const dispatch = useDispatch();
-  const questions = useSelector((state) => state.questions);
-
-  useEffect(() => {
-    dispatch(getQuestionsThunk());
-  }, [dispatch, questions]);
+  const question = api.room.question;
 
   const langList = [
     "Bash",
@@ -50,7 +42,7 @@ const QuestionPage = () => {
     "Swift",
   ];
 
-  const [language, setLanguage] = useState("Select");
+  const [language, setLanguage] = useState("Language");
   let mode = "";
   if (language === "C" || language === "Cplusplus") {
     mode = "c_cpp";
@@ -80,9 +72,9 @@ const QuestionPage = () => {
 
   const submitSolution = async () => {
     setTempCompilerResponse({ status: "compiling", tests: [] });
-    console.log(questions.data.data.questions[0].questionName);
+    // console.log(questions.data.data.questions[0].questionName);
     const res = await api.executeCode({
-      questionName: questions.data.data.questions[0].questionName,
+      questionName: question.questionName,
       code,
       language,
       submitTime: Date.now(),
@@ -109,87 +101,105 @@ const QuestionPage = () => {
   }, [tempCompilerResponse, compilerResponse, testCaseBoxStatus]);
 
   return (
-    <>
+    <article id="code-page">
       <Row className="d-flex mt-5" style={{ textAlign: "left" }}>
-        <Link to="/">
-          <img src={HomeButton} alt="home-button.svg" className="home-button" />
-        </Link>
+        { question && <h1><b>{question.questionName}</b></h1> }
       </Row>
-      <Row className="d-flex mt-5" style={{ textAlign: "left" }}>
-        {questions.data != null ? (
-          <h1>{questions.data.data.questions[0].questionName}</h1>
-        ) : (
-          <></>
-        )}
-      </Row>
+
       <Row className="d-flex mt-2" style={{ textAlign: "left" }}>
-        {questions.data != null ? (
-          <p>
-            {" "}
-            <ReactMarkdown
-              children={questions.data.data.questions[0].question}
-            />
-          </p>
-        ) : (
-          <></>
-        )}
+        { question && <p><ReactMarkdown children={question.question} /></p> }
       </Row>
-      <div className="d-flex flex-row align-items-center justify-content-between">
-        <div>
-          <b>Characters:</b> {characters}
-        </div>
 
-        <div className="d-flex flex-row align-items-center w-50">
-          <span className="mt-2">
-            <b>Language:</b> &nbsp;
-          </span>
-          <Dropdown className="">
-            <Dropdown.Toggle className="dropbtn" id="dropdown-basic">
-              {language}
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu className="dropdown-content">
-              {langList.map((lang) => (
-                <Dropdown.Item onClick={(e) => setLanguage(e.target.text)}>
-                  {lang}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
-      </div>
       <Row className="mt-5">
-        <AceEditor
-          height={700}
-          width={900}
-          value={code}
-          onChange={onChangeFunction}
-          mode={mode.toLowerCase()}
-          theme="monokai"
-          name="coding-space"
-          highlightActiveLine
-          showGutter
-          fontSize={18}
-          showPrintMargin={false}
-          editorProps={{ $blockScrolling: false }}
-          setOptions={{
-            enableBasicAutocompletion: true,
-            enableLiveAutocompletion: true,
-            enableSnippets: true,
-            showLineNumbers: true,
-            tabSize: 2,
-          }}
-        />
+        <Col md={7} sm={12} style={{ minHeight: "50em" }}>
+          <Row className="mb-3">
+            <div className="d-flex flex-row align-items-center justify-content-between">
+              <div className="d-flex flex-row justify-content-start align-items-center">
+                <Dropdown className="">
+                  <Dropdown.Toggle className="dropbtn" id="dropdown-basic">
+                    {language}
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu className="dropdown-content">
+                    {langList.map((lang) => (
+                      <Dropdown.Item
+                        onClick={(e) => setLanguage(e.target.text)}
+                      >
+                        {lang}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+              <div>
+                <b>{characters} Characters</b>
+              </div>
+              <Button
+                style={{ width: "8rem" }}
+                type="button"
+                className="submit-button"
+                onClick={onSubmit}
+              >
+                Run
+              </Button>
+            </div>
+          </Row>
+
+          <Row style={{ width: "100%", margin: 0 }}>
+            <AceEditor
+              className="my-editor"
+              value={code}
+              onChange={onChangeFunction}
+              mode={mode.toLowerCase()}
+              theme="monokai"
+              name="coding-space"
+              highlightActiveLine
+              showGutter
+              fontSize={18}
+              showPrintMargin={false}
+              editorProps={{ $blockScrolling: false }}
+              setOptions={{
+                enableEmmet: true,
+                enableBasicAutocompletion: true,
+                enableLiveAutocompletion: true,
+                enableSnippets: true,
+                showLineNumbers: true,
+                tabSize: 2,
+              }}
+            />
+          </Row>
+        </Col>
+
+        <Col md={1} sm={12} />
+
+        <Col md={4} sm={12}>
+          <div style={{ height: "4em", textAlign: "left" }}>
+            <b>Competitor</b>
+          </div>
+          <AceEditor
+            className="their-editor"
+            value={__code}
+            mode={mode.toLowerCase()}
+            theme="chaos"
+            name="coding-space-2"
+            highlightActiveLine
+            showGutter
+            fontSize={16}
+            showPrintMargin={false}
+            editorProps={{ $blockScrolling: false }}
+            setOptions={{
+              enableEmmet: true,
+              enableBasicAutocompletion: true,
+              enableLiveAutocompletion: true,
+              enableSnippets: true,
+              showLineNumbers: true,
+              tabSize: 2,
+            }}
+          />
+        </Col>
       </Row>
+
       <Row className="justify-content-start p-5">
-        <Button
-          style={{ width: "8rem" }}
-          type="button"
-          className="submit-button"
-          onClick={onSubmit}
-        >
-          Run
-        </Button>
         <div>
           <TestCaseBox
             status={testCaseBoxStatus}
@@ -197,7 +207,7 @@ const QuestionPage = () => {
           />
         </div>
       </Row>
-    </>
+    </article>
   );
 };
 

@@ -19,15 +19,11 @@ const LandingPage = () => (
           <br />
           <div className="text-center">
             <h5 className="subheader">
-              Golf it! is a game designed to let
-              <br />
-              you show off your code-fu
+              A game designed to show off your code-fu
             </h5>
             <br />
             <p className="paragraph">
-              by solving problems in
-              <br></br>
-              the least number of <b>characters.</b>
+              by solving problems in the least number of <b>characters.</b>
             </p>
           </div>
         </div>
