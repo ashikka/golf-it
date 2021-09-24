@@ -23,10 +23,7 @@ const PlayerHandler = (player: Socket) => {
     const room = await firestore.collection("rooms").doc(roomId).get();
 
     if (room.exists) {
-      let { population, players } = (room.data() || {}) as IRoom;
-
-      // if (population >= 2)
-      //   return player.emit(emit.ERROR, "Room full")
+      let { players } = (room.data() || {}) as IRoom;
 
       player.join(roomId);
       player.to(roomId).emit(emit.ROOM.JOINED, player.id);

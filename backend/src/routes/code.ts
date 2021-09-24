@@ -28,7 +28,7 @@ code.get("/:resultId", async (req, res) => {
 
 code.post("/submission/:questionName", async (req, res) => {
   const { questionName } = req.params;
-  const { code, language, submitTime } = req.body;
+  const { code, language, submitTime, roomId, clientId } = req.body;
 
   const valid = submissionValidation.validate({
     questionName,

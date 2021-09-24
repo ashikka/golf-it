@@ -77,6 +77,8 @@ const QuestionPage = () => {
       code,
       language,
       submitTime: Date.now(),
+      roomId: api._rid,
+      clientId: api.clientID
     });
     setTempCompilerResponse(res.data.compilerResponse);
   };
