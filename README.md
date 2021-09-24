@@ -10,7 +10,7 @@
   <b><h2 align="center">Golf it!</h2></b>
 
   <p align="center">
-    Golf it! is a game designed to let you show off your code-fu by solving problems <br> in the least number of <b>characters/</b>
+    Golf it! is a game designed to let you show off your code-fu by solving problems <br> in the least number of <b>characters</b>
     <br />
     <a href="https://github.com/ashikka/golf-it"><strong>Explore the docs »</strong></a>
     <br />
@@ -44,7 +44,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<p align="center">
+  <a href="https://github.com/ashikka/golf-it">
+    <img src="./docs/golf.gif" />
+  </a>
+</p>
 
 Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
@@ -61,7 +65,7 @@ Here's a blank template to get started:
 * [socket.io](https://www.npmjs.com/package/socket.io)
 * [joi](https://www.npmjs.com/package/socket.io)
 * [socket.io](https://www.npmjs.com/package/socket.io)
-* [redis]()
+* [redis](https://redis.io)
 
 #### 2. Frontend
 
