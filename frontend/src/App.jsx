@@ -1,7 +1,9 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { Container } from "react-bootstrap";
+
 import "./App.scss";
+
 import LandingPage from "./pages/LandingPage/LandingPage";
 import WaitingPage from "./pages/WaitingPage/WaitingPage";
 import CodingPage from "./pages/CodingPage/CodingPage";
@@ -10,7 +12,7 @@ function App() {
   return (
     <>
       <div className="d-flex-row justify-content-around p-4 m-0 navbar">
-        <b>G O L F</b>
+        <img src="/logo192.png" alt="GOLF" className="logo" />
       </div>
 
       <Router basename={process.env.PUBLIC_URL}>

@@ -1,11 +1,72 @@
-.dropdown-item{
-    color: white !important;
-}
+#code-page {
+    .dropdown-item{
+        color: white !important;
+    }
+    
+    .test-case-div {
+        margin-top: 2rem;
+        background: linear-gradient(180deg, #28292c 0%, rgba(39, 40, 43, 0.82) 100%) !important;
+        box-shadow: 0px 13px 40px #00000030, 0px 4px 4px #00000020;
+        border-radius: 16px;
+        padding: 1rem;
+      }
+    
+    
+    .my-editor {
+        min-height: 40em;
+        min-width: 100%;
+        height: 100%; 
+        border-radius: 0.5em;
+        box-shadow: 10px 10px 15px #00000080;
+    }
+    
+    .their-editor {
+        min-height: 20em;
+        min-width: 100%;
+        height: 100%; 
+        border-radius: 0.5em;
+        box-shadow: 5px 5px 10px #00000060;
+    }
 
-.test-case-div {
-    margin-top: 2rem;
-    background: linear-gradient(180deg, #28292c 0%, rgba(39, 40, 43, 0.82) 100%) !important;
-    box-shadow: 0px 13px 40px #00000030, 0px 4px 4px #00000020;
-    border-radius: 16px;
-    padding: 1rem;
-  }
+    .game-end-glass {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        z-index: 100;
+        animation: dropglass 2s ease-in forwards;
+    }
+
+    @keyframes dropglass {
+        0% {
+            bottom: 100vh;
+        }
+        30% {
+            bottom: 0;
+        }
+        35% {
+            bottom: 25vh;
+        }
+        60% {
+            bottom: 0;
+        }
+        65% {
+            bottom: 5vh;
+        }
+        100% {
+            bottom: 0;
+        }
+    }
+
+    #box-of-glory {
+        background-color: #00502b40;
+    }
+    #box-of-shame {
+        background-color: #50000040;
+    }
+}

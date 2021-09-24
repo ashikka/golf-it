@@ -1,18 +1,15 @@
 import express from 'express';
-import path from 'path';
-import fs from 'fs';
-import crypto, { randomBytes } from 'crypto';
 import cors from 'cors';
 
 require('dotenv').config();
 
 // --------------------------
 /**
- * 
+ * REST Server
  */
 
 const server = express();
-const HTTPPORT = 4000;
+const HTTPPORT = parseInt(process.env.REST_PORT || "4000");
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
@@ -34,7 +31,7 @@ server.listen(HTTPPORT, console.log.bind(this, `[Starting] Bind PORT ${HTTPPORT}
 
 // --------------------------
 /**
- * 
+ * Socket Server
  */
 
 import { Server, Socket } from 'socket.io';
@@ -42,7 +39,7 @@ import EVENTS from './sockets/events';
 import PlayerHandler from './sockets/players';
 import RoomHandler from './sockets/rooms';
 
-const SOCKPORT = 4050;
+const SOCKPORT = parseInt(process.env.SOCK_PORT || "4050");
 const { listen, emit } = EVENTS;
 
 const sock = new Server(SOCKPORT, {

@@ -3,12 +3,7 @@ import events from "./events";
 
 const { listen, emit } = events;
 
-const RoomHandler = (room: Socket) => {
-
-  room.on(listen.ROOM.CONNECT, (clientId: string) => {
-    
-  })
-  
+const RoomHandler = (room: Socket) => {  
   /**
    * When a joined player types, send that code to everyone
    * in the room.

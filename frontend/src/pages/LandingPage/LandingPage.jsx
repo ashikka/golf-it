@@ -5,7 +5,7 @@ import "./LandingPage.scss";
 
 import { Row, Button } from "react-bootstrap";
 import Tilt from "react-tilt";
-import ArchLinux from "../../assets/arch.png";
+import ArchLinux from "../../assets/arch.jpeg";
 
 const LandingPage = () => (
   <article>
@@ -13,21 +13,15 @@ const LandingPage = () => (
       <div>
         <div>
           <div>
-            <div className="w-50" />
             <h1 className="header">Golf it!</h1>
           </div>
           <br />
           <div className="text-center">
             <h5 className="subheader">
-              Golf it! is a game designed to let
-              <br />
-              you show off your code-fu
+              A game designed to show off your code-fu
             </h5>
-            <br />
             <p className="paragraph">
-              by solving problems in
-              <br></br>
-              the least number of <b>characters.</b>
+              by solving problems in the least number of <b>characters.</b>
             </p>
           </div>
         </div>

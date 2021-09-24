@@ -12,7 +12,7 @@ const QuestionCard = (props) => {
           <Row>
             <Col md={8} sm={12}>
               <Card.Title className="card-title">
-                {props.questionName}
+                <h2><b>{props.questionName}</b></h2>
               </Card.Title>
               <ReactMarkdown children={props.question} />
             </Col>

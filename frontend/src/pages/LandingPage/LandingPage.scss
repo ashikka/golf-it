@@ -77,11 +77,16 @@
 .navbar {
   position: sticky;
   width: 100vw !important;
+  height: 8em;
   top: 0px;
   z-index: 10;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.445);
   backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.39);
+  background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.39), transparent);
+
+  .logo {
+    height: 5em;
+    margin: auto;
+  }
 }
 
 .navbar.colorChange {
@@ -91,7 +96,6 @@
 .header {
   font-weight: bold;
   font-size: 64px;
-  margin-top: 4rem;
 }
 
 .subheader {
