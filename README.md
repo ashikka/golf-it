@@ -57,29 +57,17 @@ Here's a blank template to get started:
 
 ### Built With
 
-#### 1. Backend
-* [Typescript](https://www.typescriptlang.org/download)
-* [express](https://www.npmjs.com/package/express)
-* [firebase](https://www.npmjs.com/package/firebase)
-* [code-executor](https://www.npmjs.com/package/code-executor?activeTab=readme)
-* [socket.io](https://www.npmjs.com/package/socket.io)
-* [joi](https://www.npmjs.com/package/socket.io)
-* [socket.io](https://www.npmjs.com/package/socket.io)
-* [redis](https://redis.io)
 
-#### 2. Frontend
+| Backend | Frontend     | 
+| :--------: | :-------: | 
+| [Typescript](https://www.typescriptlang.org/download)    | [Javascript](https://www.javascript.com/) | 
+| [express](https://www.npmjs.com/package/express)   | [axios](https://www.npmjs.com/package/axios) |  
+|[firebase](https://www.npmjs.com/package/firebase)   | [React](https://reactjs.org/) |
+| [code-executor](https://www.npmjs.com/package/code-executor?activeTab=readme)   | [react-redux](https://react-redux.js.org/) |
+|   [socket.io](https://www.npmjs.com/package/socket.io)  |  [socket.io-client](https://www.npmjs.com/package/socket.io-client)| 
+| [joi](https://www.npmjs.com/package/socket.io)   | [react-router-dom](https://www.npmjs.com/package/react-router-dom) | 
+|  [redis](https://redis.io) | [react-ace](https://www.npmjs.com/package/react-ace) | 
 
-* [axios](https://www.npmjs.com/package/axios)
-* [Javascript](https://www.javascript.com/)
-* [React](https://reactjs.org/)
-* [react-bootstrap](https://react-bootstrap.github.io/)
-* [react-ace](https://www.npmjs.com/package/react-ace)
-* [sass](https://www.npmjs.com/package/sass)
-* [react-redux](https://react-redux.js.org/)
-* [socket.io-client](https://www.npmjs.com/package/socket.io-client)
-* [swal](https://www.npmjs.com/package/sweetalert)
-* [react-router-dom](https://www.npmjs.com/package/react-router-dom)
-* [react-tilt](https://www.npmjs.com/package/react-tilt)
 
 
 
