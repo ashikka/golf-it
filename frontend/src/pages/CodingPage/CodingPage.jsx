@@ -4,7 +4,7 @@ import AceEditor from "react-ace";
 import { Dropdown, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import ReactMarkdown from "react-markdown";
-import TestCaseBox from '../../components/testCaseBox/TestCaseBox';
+import TestCaseBox from "../../components/testCaseBox/TestCaseBox";
 import api from "../../api";
 import { getQuestionsThunk } from "../../redux/slices/questionSlice";
 
@@ -190,10 +190,12 @@ const QuestionPage = () => {
         >
           Run
         </Button>
-        <TestCaseBox
+        <div>
+          <TestCaseBox
             status={testCaseBoxStatus}
             compilerResponse={compilerResponse}
           />
+        </div>
       </Row>
     </>
   );
