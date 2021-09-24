@@ -122,7 +122,7 @@ yarn
 } >> .env
 ```
 <!-- USAGE EXAMPLES -->
-## Usage
+## :wrench: Usage
 
 Start the project locally by following these steps. 
 
