@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <div className="d-flex-row justify-content-around p-4 m-0 navbar">
-        <b>G O L F</b>
+        <img src="/logo192.png" alt="GOLF" className="logo" />
       </div>
 
       <Router basename={process.env.PUBLIC_URL}>

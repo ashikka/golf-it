@@ -13,7 +13,6 @@ const LandingPage = () => (
       <div>
         <div>
           <div>
-            <div className="w-50" />
             <h1 className="header">Golf it!</h1>
           </div>
           <br />
@@ -21,7 +20,6 @@ const LandingPage = () => (
             <h5 className="subheader">
               A game designed to show off your code-fu
             </h5>
-            <br />
             <p className="paragraph">
               by solving problems in the least number of <b>characters.</b>
             </p>

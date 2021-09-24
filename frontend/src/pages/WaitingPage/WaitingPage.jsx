@@ -61,7 +61,7 @@ const WaitingPage = () => {
   if (!selectedQuestion && !createdRoomID)
     return (
       <Row>
-        <div className="mt-5 mb-5" style={{ textAlign: "left" }}>
+        <div className="mt-5 mb-5">
           <h1><b>Challenges</b></h1>
           <p>Choose a challenge below and invite a friend to solve it with you!</p>
         </div>
