@@ -1,52 +1,51 @@
-.test-case-div{
-    width: 80%;
-    height: 250%;
-    background-color: transparent;
-    margin-top: 2rem;
-    border: 5px solid #3cc6f2;
+.compiling-box {
+  margin-top: 2rem;
+  background: linear-gradient(180deg, #28292c 0%, rgba(39, 40, 43, 0.82) 100%);
+  box-shadow: 0px 13px 40px #00000030, 0px 4px 4px #00000020;
+  border-radius: 16px;
+  padding: 1rem;
+  height: 12rem;
 }
 
-.compiling-box{
-    margin-top: 2rem;
-}
 
-.test-case-box{
-    font-size: 70%;
-    text-align: center;
-    padding: 1rem;
-    border: 2px solid #3cc6f2;
-    width: 200px;
+.test-case-box {
+  font-size: 70%;
+  text-align: center;
+  padding: 1rem;
+  border: 2px solid #4C53BE;
+  width: 200px;
 }
 
 .sample-case-detail {
-    white-space: pre-line;
-    text-decoration-style: underline solid  #3cc6f2;
-    margin-bottom: 30px;
+  white-space: pre-line;
+  text-decoration-style: underline solid #4C53BE;
+  margin-bottom: 30px;
 }
 
 .case-box {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .icon {
-    height: 20px;
+  height: 20px;
 }
 
 .icon-div {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .result {
-    margin-top: 20px;
-    font-size: 30px;
+  margin-top: 20px;
+  font-size: 20px;
+  margin-bottom: 1rem;
 }
 
 .red {
-    color: red;
+  color: red;
 }
 
 .green {
-    color: green;
+  color: green;
 }
