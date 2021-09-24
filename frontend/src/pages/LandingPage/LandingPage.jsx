@@ -5,7 +5,7 @@ import "./LandingPage.scss";
 
 import { Row, Button } from "react-bootstrap";
 import Tilt from "react-tilt";
-import ArchLinux from "../../assets/arch.png";
+import ArchLinux from "../../assets/arch.jpeg";
 
 const LandingPage = () => (
   <article>
