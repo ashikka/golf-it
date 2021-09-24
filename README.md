@@ -93,7 +93,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+This is an example of how to lis:mechanical_arm:t things you need to use the software and how to install them.
 * yarn
 ```sh
 npm install -g yarn
@@ -148,7 +148,7 @@ cd frontend
 
 yarn start
 ```
-## Routes
+## :triangular_flag_on_post: Routes
 The backend of the project supports the following routes: 
 
 ### 1. Code submission
@@ -189,7 +189,7 @@ See the [open issues](https://github.com/ashikka/golf-it/issues) for a list of p
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+## :mechanical_arm: Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -202,7 +202,7 @@ Contributions are what make the open source community such an amazing place to b
 You are requested to follow the contribution guidelines specified in [CONTRIBUTING.md](./CONTRIBUTING.md) while contributing to the project :smile:.
 
 <!-- LICENSE -->
-## License
+##  :page_facing_up: License
 
 Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
 
