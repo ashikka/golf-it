@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/golf-it/static/css/main.364493de.chunk.css",
-    "main.js": "/golf-it/static/js/main.b6578289.chunk.js",
-    "main.js.map": "/golf-it/static/js/main.b6578289.chunk.js.map",
+    "main.js": "/golf-it/static/js/main.fed4263d.chunk.js",
+    "main.js.map": "/golf-it/static/js/main.fed4263d.chunk.js.map",
     "runtime-main.js": "/golf-it/static/js/runtime-main.4d74441b.js",
     "runtime-main.js.map": "/golf-it/static/js/runtime-main.4d74441b.js.map",
     "static/css/2.0a9ec390.chunk.css": "/golf-it/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.f5041ed5.chunk.js": "/golf-it/static/js/2.f5041ed5.chunk.js",
-    "static/js/2.f5041ed5.chunk.js.map": "/golf-it/static/js/2.f5041ed5.chunk.js.map",
+    "static/js/2.d9109c4d.chunk.js": "/golf-it/static/js/2.d9109c4d.chunk.js",
+    "static/js/2.d9109c4d.chunk.js.map": "/golf-it/static/js/2.d9109c4d.chunk.js.map",
     "static/js/3.50285be6.chunk.js": "/golf-it/static/js/3.50285be6.chunk.js",
     "static/js/3.50285be6.chunk.js.map": "/golf-it/static/js/3.50285be6.chunk.js.map",
     "index.html": "/golf-it/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/golf-it/static/css/2.0a9ec390.chunk.css.map",
     "static/css/main.364493de.chunk.css.map": "/golf-it/static/css/main.364493de.chunk.css.map",
-    "static/js/2.f5041ed5.chunk.js.LICENSE.txt": "/golf-it/static/js/2.f5041ed5.chunk.js.LICENSE.txt",
+    "static/js/2.d9109c4d.chunk.js.LICENSE.txt": "/golf-it/static/js/2.d9109c4d.chunk.js.LICENSE.txt",
     "static/media/arch.0ce9d5c8.jpeg": "/golf-it/static/media/arch.0ce9d5c8.jpeg",
     "static/media/loading.8bce630c.gif": "/golf-it/static/media/loading.8bce630c.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.4d74441b.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.f5041ed5.chunk.js",
+    "static/js/2.d9109c4d.chunk.js",
     "static/css/main.364493de.chunk.css",
-    "static/js/main.b6578289.chunk.js"
+    "static/js/main.fed4263d.chunk.js"
   ]
 }
